@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="/web-server/public/css/js/app.js"></script>
+    </head>
+    <body>
+        {{>header}}
+        <p>created by {{name}}</p>
+        <form>
+            <input placeholder="location">
+            <button>search</button>
+        </form>
+        <p id="message1"></p>
+        <p id="message2"></p>
+        {{>footer}}
+        <script>
+           const weatherform=document.querySelector('form')
+           const search=document.querySelector('input')
+           const message1=document.querySelector('#message1')
+           const message2=document.querySelector('#message2')
+           weatherform.addEventListener('submit',(e)=>{
+               e.preventDefault()
+               const location=search.value
+               message1.textContent='loading!!!'
+               message2.textContent=''
+                 fetch('http://localhost:3000/weather?search='+location).then((response)=>{
+                 response.json().then((data)=>{
+                     if(data.error){
+                        message1.textContent=data.error
+                    } else{
+                        message1.textContent=data.location
+                        message2.textContent=data.forecast
+                     }
+                })
+            })
+
+           })
+        </script>
+
+    </body>
+</html>

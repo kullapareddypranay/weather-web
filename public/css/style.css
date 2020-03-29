@@ -1,0 +1,8 @@
+h1{
+    color: aqua;
+}
+.footer{
+    margin:0 auto;
+    border-top: 1px solid grey;
+    padding: 20px;
+}
