@@ -5,6 +5,7 @@ const geocode=require('./utils/geocode')
 
 
 const app=express()
+const port=process.env.PORT || 3000
 //setting public directory path
 const publicDirectoryPath=path.join(__dirname,'../public')
 //using static public folder
@@ -92,6 +93,6 @@ app.get('*',(req,res)=>{
 })
 
 
-app.listen(3000,()=>{
-    console.log('server is started on port 3000')
+app.listen(port,()=>{
+    console.log('server is started on port '+port)
 })
