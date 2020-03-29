@@ -36,7 +36,7 @@ const forecast=(latitude,longitude,callback)=>{
             callback('try with different latitudes and longitudes')
         }
         else{
-            callback(undefined,response.body.daily.data[0].summary +'and '+response.body.currently.temperature)
+            callback(undefined,response.body.daily.data[0].summary +'and temparute is '+response.body.currently.temperature+'the high is'+response.body.daily.data[0].temperatureHigh+'the low is'+response.body.daily.data[0].temperatureLow)
         }
 
     })
